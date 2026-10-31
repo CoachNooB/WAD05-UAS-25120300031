@@ -1,0 +1,29 @@
+{
+  "name": "SistaBrew",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "dev": "concurrently -k \"pnpm --filter @sistabrew/api dev\" \"pnpm --filter @sistabrew/web dev\"",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @sistabrew/api test",
+    "db:generate": "pnpm --filter @sistabrew/db generate",
+    "db:migrate:deploy": "pnpm --filter @sistabrew/api migrate",
+    "db:seed": "pnpm --filter @sistabrew/api seed",
+    "postinstall": "pnpm db:generate",
+    "db:maintenance": "pnpm --filter @sistabrew/api maintenance",
+    "test:integration": "pnpm --filter @sistabrew/api test:integration",
+    "format": "prettier --write \"apps/**/*.{ts,mjs,vue,css,json}\" \"packages/**/*.{ts,json}\" \"*.{json,yaml,md}\"",
+    "format:check": "prettier --check \"apps/**/*.{ts,mjs,vue,css,json}\" \"packages/**/*.{ts,json}\" \"*.{json,yaml,md}\"",
+    "lint": "pnpm format:check && pnpm typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.1",
+    "typescript": "5.9.3",
+    "@types/node": "24.10.1",
+    "prettier": "3.6.2"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@sistabrew/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/*.test.ts",
+    "seed": "tsx src/seed.ts",
+    "maintenance": "tsx src/maintenance.ts",
+    "test:integration": "tsx src/integration.ts",
+    "migrate": "tsx src/migrate.ts"
+  },
+  "dependencies": {
+    "@sistabrew/db": "workspace:*",
+    "@sistabrew/shared": "workspace:*",
+    "@supabase/supabase-js": "2.84.0",
+    "bcrypt": "6.0.0",
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "express-session": "1.18.2",
+    "helmet": "8.1.0",
+    "multer": "2.0.2",
+    "sharp": "0.34.5",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "6.0.0",
+    "@types/express": "5.0.5",
+    "@types/express-session": "1.18.2",
+    "@types/multer": "2.0.0",
+    "@types/supertest": "6.0.3",
+    "supertest": "7.1.4",
+    "tsx": "4.20.6"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
